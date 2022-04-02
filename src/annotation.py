@@ -1,4 +1,3 @@
-import functools
 
 
 def batch_init(Aspects):
@@ -25,7 +24,6 @@ def batch_after(aspects, callable_result, is_reversed):
 
 def annotation(Aspects, is_onion=True):
     def deco(callable_object):
-        @functools.wraps
         def _deco(*args, **kwargs):
             aspects = batch_init(Aspects)
             batch_before(aspects, *args, **kwargs)
