@@ -23,14 +23,14 @@ def batch_after(aspects, callable_result, is_reversed):
         aspect.after(callable_result)
 
 
-def annotation(Aspects, is_onno=True):
+def annotation(Aspects, is_onion=True):
     def deco(callable_object):
         @functools.wraps
         def _deco(*args, **kwargs):
             aspects = batch_init(Aspects)
             batch_before(aspects, *args, **kwargs)
             result = callable_object(*args, **kwargs)
-            batch_after(aspects, result, is_onno)
+            batch_after(aspects, result, is_onion)
             return result
         return _deco
     return deco
