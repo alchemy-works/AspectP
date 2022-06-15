@@ -28,7 +28,7 @@ class Aspect2(aspect.Aspect):
         print(f"{self.__class__}, after")
 
 
-@annotation.annotation(Aspects=[Aspect1, Aspect2])
+@annotation.batch_annotation(Aspects=[Aspect1, Aspect2])
 def foo(name):
     print(f"foo {name}")
 
